@@ -4,7 +4,7 @@ import hashlib
 import json
 from datetime import datetime
 
-class Blockchain:
+class Block:
  def __init__(self,index,timestamp,data,previous_hash):
     self.index = index
     self.timestamp = timestamp
@@ -33,7 +33,7 @@ class Blockchain:
 
 #Creating Genesis Block
 
-genesis_block= Blockchain(0,datetime.now(),{"Message":"Genesis Block"},"0")
+genesis_block= Block(0,datetime.now(),{"Message":"Genesis Block"},"0")
 print(f"Genesis Block: {genesis_block}")
 print(f"Hash: {genesis_block.hash}")
     
