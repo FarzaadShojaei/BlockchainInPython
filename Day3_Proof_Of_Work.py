@@ -3,6 +3,23 @@ import json
 import time
 from datetime import datetime
 from Day1_Blockchain import Block
+
+
+myBlockchain=Block()
+
+
+def mine_block(self,difficulty):
+    new_hash=myBlockchain.hash
+    new_nonce=myBlockchain.nonce
+    new_calculateHash=myBlockchain.calculate_hash()
+    target="0" * difficulty
+    while new_hash[:difficulty] != target:
+        new_nonce +=1
+        new_hash=new_calculateHash
+
+    print(f"Block mined: {new_hash}")
+
+
 class Blockchain:
     def __init__(self):
         self.chain = [self.create_genesis_block()]
@@ -48,16 +65,7 @@ class Blockchain:
                 return False
             
         return True
-    
-    
 
-# Test the blockchain
-my_blockchain = Blockchain()
-my_blockchain.add_block(Block(1, datetime.now(), {"amount": 100}, ""))
-my_blockchain.add_block(Block(2, datetime.now(), {"amount": 200}, ""))
 
-print(f"Is blockchain valid? {my_blockchain.is_chain_valid()}")
 
-# Try to tamper with the blockchain
-my_blockchain.chain[1].data = {"amount": 1000}
-print(f"After tampering, is blockchain valid? {my_blockchain.is_chain_valid()}")
+
