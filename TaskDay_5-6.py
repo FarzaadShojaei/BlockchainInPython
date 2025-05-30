@@ -1,8 +1,4 @@
-import hashlib
-import json
-import time
-from datetime import datetime
-from Day1_Blockchain import Block
+
 
 
 #Implement dynamic difficulty adjustment
@@ -40,7 +36,7 @@ class Block:
         }, sort_keys=True)
         return hashlib.sha256(block_string.encode()).hexdigest()
     
-    # ✅ Add this method to your Block class:
+    
     def mine_block(self, difficulty):
         target = "0" * difficulty
         start_time = time.time()
